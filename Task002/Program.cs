@@ -12,7 +12,8 @@ try
     int num2 = int.Parse(Console.ReadLine());
 
     if (num1 > num2) Console.WriteLine($"Число {num1} больше {num2}");
-    else Console.WriteLine($"Число {num2} больше {num1}");
+    else if (num1 < num2) Console.WriteLine($"Число {num2} больше {num1}");
+    else Console.WriteLine("Числа равны.");
 }
 
 catch

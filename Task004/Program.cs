@@ -13,9 +13,13 @@ try
     Console.Write("Введите третье целое число: ");
     int num3 = int.Parse(Console.ReadLine());
 
-    if (num1 > num2 && num1 > num3) Console.WriteLine($"Число {num1} максимальное из трех чисел.");
-    else if (num2 > num1 && num2 > num3) Console.WriteLine($"Число {num2} максимальное из трех чисел.");
-    else Console.WriteLine($"Число {num3} максимальное из трех чисел.");
+    int num = num1;
+
+    if(num < num2) num = num2;
+
+    if(num < num3) num = num3;
+    
+    Console.WriteLine($"Число {num} максимальное из трех чисел.");
 }
 
 catch
