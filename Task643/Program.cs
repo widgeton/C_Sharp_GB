@@ -32,4 +32,5 @@ double[] FindCrossingPoint(int a1, int c1, int a2, int c2)
 }
 
 double[] result = FindCrossingPoint(b1, k1, b2, k2);
-Console.WriteLine($"({result[0]}; {result[1]})");
+if(result[0] == -0 || result[1] == -0) Console.WriteLine("Прямые параллельны");
+else Console.WriteLine($"({result[0]}; {result[1]})");
