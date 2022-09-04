@@ -24,7 +24,7 @@ int[,,] CreateIntUniqueValueCube(int row, int col, int depth, int min, int max)
             }
         }
     }
-    
+
     int[,,] cube = new int[row, col, depth];
     int index = default;
 

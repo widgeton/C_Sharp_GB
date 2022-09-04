@@ -42,27 +42,20 @@ void PrintMatrix(int[,] matrix)
 
 void SortValuesInRowsOfMatrix(int[,] matrix)
 {
-    for (int i = 0; i < matrix.GetLength(0); i++)
+  for (int i = 0; i < matrix.GetLength(0); i++)
+  {
+    for (int j = 0; j < matrix.GetLength(1) - 1; j++)
     {
-        for (int j = 0; j < matrix.GetLength(1) - 1; j++)
-        {
-            int max = matrix[i, j];
-            int index = j;
+      int index = j;
 
-            for (int k = j + 1; k < matrix.GetLength(1); k++)
-            {
-                if (max < matrix[i, k])
-                {
-                    max = matrix[i, k];
-                    index = k;
-                }
-            }
+      for (int k = j + 1; k < matrix.GetLength(1); k++)
+        if (matrix[i, index] < matrix[i, k]) index = k;
 
-            int temp = matrix[i, index];
-            matrix[i, index] = matrix[i, j];
-            matrix[i, j] = temp;
-        }
+      int temp = matrix[i, index];
+      matrix[i, index] = matrix[i, j];
+      matrix[i, j] = temp;
     }
+  }
 }
 
 int[,] mtrx = CreateIntMatrix(3, 4, 1, 9);

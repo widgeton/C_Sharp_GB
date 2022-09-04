@@ -40,22 +40,22 @@ void PrintMatrix(int[,] matrix)
 
 int[,] MultiplyMatrices(int[,] matrixA, int[,] matrixB)
 {
-    int[,] matrix = new int[matrixA.GetLength(0), matrixB.GetLength(1)];
+  int[,] matrix = new int[matrixA.GetLength(0), matrixB.GetLength(1)];
 
-    for (int k = 0; k < matrix.GetLength(0); k++)
+  for (int k = 0; k < matrix.GetLength(0); k++)
+  {
+    for (int i = 0; i < matrix.GetLength(1); i++)
     {
-        for (int i = 0; i < matrix.GetLength(1); i++)
-        {
-            int sum = default;
-            for (int j = 0; j < matrixA.GetLength(1); j++)
-            {
-                sum += matrixA[k, j] * matrixB[j, i];
-            }
-            matrix[k, i] = sum;
-        }
+      int sum = default;
+      for (int j = 0; j < matrixA.GetLength(1); j++)
+      {
+        sum += matrixA[k, j] * matrixB[j, i];
+      }
+      matrix[k, i] = sum;
     }
+  }
 
-    return matrix;
+  return matrix;
 }
 
 int[,] mtrxA = CreateIntMatrix(4, 2, 1, 9);

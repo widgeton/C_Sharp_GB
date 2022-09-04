@@ -42,30 +42,31 @@ void PrintMatrix(int[,] matrix)
 
 int FindRowWithMinSumElements(int[,] matrix)
 {
-    int row = default;
-    int sumLast = default;
+  int row = default;
+  int sumLast = 0;
 
-    for (int i = 0; i < matrix.GetLength(1); i++)
-        sumLast += matrix[0, i];
+  for (int j = 0; j < matrix.GetLength(1); j++)
+    sumLast += matrix[0, j];
 
-    for (int i = 1; i < matrix.GetLength(0); i++)
+  for (int i = 1; i < matrix.GetLength(0); i++)
+  {
+    int sumNext = default;
+
+    for (int j = 0; j < matrix.GetLength(1); j++)
+      sumNext += matrix[i, j];
+
+    if (sumNext < sumLast)
     {
-        int sumNext = default;
-
-        for (int j = 0; j < matrix.GetLength(1); j++)
-            sumNext += matrix[i, j];
-
-        if(sumNext < sumLast)
-        {
-            sumLast = sumNext;
-            row = i;
-        }
+      sumLast = sumNext;
+      row = i;
     }
+  }
 
-    return row;
+  return row;
 }
 
 int[,] mtrx = CreateIntMatrix(4, 4, 1, 5);
+
 PrintMatrix(mtrx);
 
 Console.WriteLine();
